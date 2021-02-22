@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ReptileBook</string>
+    <string name="pet_number_1">Pet Number 1</string>
+    <string name="dummy_title">Dummy Reptiles</string>
+</resources>

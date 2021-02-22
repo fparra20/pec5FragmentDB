@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="8dp"
+    android:layout_margin="8dp" >
+
+    <!-- scaleType hace que no haya espacio libre entre la foto y el borde del cardview
+    adjustViewBounds elimina el espacio que queda libre al ajustar la imagen -->
+    <ImageView
+        android:id="@+id/imgPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="true"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#8c000000"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/ibPuntuation"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/puntuation_blank"
+            android:onClick="clickPuntuation"/>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            />
+
+        <ImageView
+            android:id="@+id/ivPuntuation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:gravity="right"
+            android:layout_gravity="right"
+            android:scaleType="fitEnd"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="0dp"
+            card_view:srcCompat="@drawable/puntuation_filled"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
