@@ -74,7 +74,19 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             @Override
             public void onClick(View v) {
 
-                // Creamos un cuadro de diálogo
+                // Guardamos el valor actual de puntuación
+                int currentValue=Integer.parseInt(pet.getRating());
+
+                // Sumamos 1
+                int newValue = currentValue+1;
+
+                // Cambiamos el rating de la mascota en cuestion
+                pet.setRating(String.valueOf(newValue));
+
+                // Actualizamos también el TextView que lo muestra
+                petViewHolder.tvRating.setText(String.valueOf(newValue));
+
+                /* Creamos un cuadro de diálogo
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(v.getContext());
 
                 // Creamos un linea layout para el dialogo
@@ -133,6 +145,8 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
                 // Mostramos el diálogo
                 alertDialog.show();
+                 */
+
 
             }
         });

@@ -86,16 +86,16 @@ public class MainActivity extends AppCompatActivity {
     // Rellenamos el arraylist con 10 reptiles por defecto
     public void initListaPets() {
         pets = new ArrayList<Pet>();
-        pets.add(new Pet(R.drawable.camaleon,"Chameleon","3.5"));
-        pets.add(new Pet(R.drawable.mountain_horned_dragon,"Mountain Horned Dragon","4.0"));
-        pets.add(new Pet(R.drawable.russian_turtle,"Russian turtle","5.0"));
-        pets.add(new Pet(R.drawable.fire_skink,"Fire Skink","3.0"));
-        pets.add(new Pet(R.drawable.red_eared_slider_turtle,"Red Eared Turtle","3.0"));
-        pets.add(new Pet(R.drawable.baby_bearded_dragon,"Baby Bearded Dragon","5.0"));
-        pets.add(new Pet(R.drawable.gecko,"Common Gecko","5.0"));
-        pets.add(new Pet(R.drawable.ball_phyton,"Ball Phyton","4.0"));
-        pets.add(new Pet(R.drawable.anolis_carolinensis,"Anolis Carolinensis","5.0"));
-        pets.add(new Pet(R.drawable.leopard_gecko,"Leopard Gecko","2.0"));
+        pets.add(new Pet(R.drawable.camaleon,"Chameleon","0"));
+        pets.add(new Pet(R.drawable.mountain_horned_dragon,"Mountain Horned Dragon","0"));
+        pets.add(new Pet(R.drawable.russian_turtle,"Russian turtle","0"));
+        pets.add(new Pet(R.drawable.fire_skink,"Fire Skink","0"));
+        pets.add(new Pet(R.drawable.red_eared_slider_turtle,"Red Eared Turtle","0"));
+        pets.add(new Pet(R.drawable.baby_bearded_dragon,"Baby Bearded Dragon","0"));
+        pets.add(new Pet(R.drawable.gecko,"Common Gecko","0"));
+        pets.add(new Pet(R.drawable.ball_phyton,"Ball Phyton","0"));
+        pets.add(new Pet(R.drawable.anolis_carolinensis,"Anolis Carolinensis","0"));
+        pets.add(new Pet(R.drawable.leopard_gecko,"Leopard Gecko","0"));
     }
 
 }
