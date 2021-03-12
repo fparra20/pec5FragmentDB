@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <item
         android:id="@+id/action_dummy_reptiles"
         android:icon="@android:drawable/btn_star_big_on"
-        android:orderInCategory="1"
-        android:title="hola"
-        app:showAsAction="ifRoom" />
+        android:title="dummies"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/contact"
+        android:title="@string/contacto"
+        app:showAsAction="never"
+        android:icon="@drawable/paw_reptile_icon"/>
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/acerca_de"
+        app:showAsAction="never"/>
+
 </menu>

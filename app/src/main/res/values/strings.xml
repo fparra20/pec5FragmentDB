@@ -2,4 +2,16 @@
     <string name="app_name">ReptileBook</string>
     <string name="pet_number_1">Pet Number 1</string>
     <string name="dummy_title">Dummy Reptiles</string>
+    <string name="contacto">Contact</string>
+    <string name="acerca_de">About</string>
+
+    <string name="nombre_completo">Full name</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="mensaje">Message</string>
+    <string name="enviarComentario">Send feedback</string>
+    <string name="creator_name">Francisco Parra Moyano</string>
+    <string name="creator_tlf">(+34) 967 14 44 00</string>
+    <string name="creator_email">fpm015@gmail.com</string>
+    <string name="creator_dir">Calle Pigallas 9, 02600, Villarrobledo, Albacete</string>
+    <string name="complete_name">Complete Name</string>
 </resources>

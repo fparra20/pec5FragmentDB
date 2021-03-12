@@ -1,17 +1,24 @@
 package hfad.com.pec4mascotas;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 // Implementa serializable lo cual nos permite pasar arraylist entre activities
 public class Pet implements Serializable {
     private String name;
     private int photo;
-    private String rating;
+    private int rating;
+    private int pet_id;
 
-    public Pet(int photo, String name, String rating) {
+    public Pet(int pet_id, int photo, String name, int rating) {
+        this.pet_id=pet_id;
         this.name = name;
         this.photo = photo;
         this.rating = rating;
+    }
+
+    public int getPet_id() {
+        return pet_id;
     }
 
     public String getName() {
@@ -22,7 +29,7 @@ public class Pet implements Serializable {
         return photo;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
 
@@ -34,7 +41,7 @@ public class Pet implements Serializable {
         this.photo = photo;
     }
 
-    public void setRating(String rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

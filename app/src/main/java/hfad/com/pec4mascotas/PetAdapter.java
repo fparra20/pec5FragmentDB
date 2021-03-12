@@ -2,8 +2,11 @@ package hfad.com.pec4mascotas;
 
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.drawable.Drawable;
 import android.media.Rating;
 import android.view.LayoutInflater;
@@ -18,15 +21,17 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import hfad.com.pec4mascotas.database.PetsDataBaseHelper;
 
 public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
 
     ArrayList<Pet> pets;
     Activity activity;
-    TextView textView;
 
     public PetAdapter(ArrayList<Pet> pets, Activity activity) {
         this.pets = pets;
@@ -59,7 +64,7 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         Pet pet = pets.get(position);
         petViewHolder.imgPhoto.setImageResource(pet.getPhoto());
         petViewHolder.tvName.setText(pet.getName());
-        petViewHolder.tvRating.setText(pet.getRating());
+        petViewHolder.tvRating.setText(String.valueOf(pet.getRating()));
 
         // Que si clickamos el nombre, nos salga un toast con nombre completo
         petViewHolder.tvName.setOnClickListener(new View.OnClickListener() {
@@ -75,78 +80,31 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
             public void onClick(View v) {
 
                 // Guardamos el valor actual de puntuación
-                int currentValue=Integer.parseInt(pet.getRating());
+                int currentValue=pet.getRating();
 
                 // Sumamos 1
                 int newValue = currentValue+1;
 
                 // Cambiamos el rating de la mascota en cuestion
-                pet.setRating(String.valueOf(newValue));
+                pet.setRating(newValue);
 
                 // Actualizamos también el TextView que lo muestra
                 petViewHolder.tvRating.setText(String.valueOf(newValue));
 
-                /* Creamos un cuadro de diálogo
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(v.getContext());
+                // Creamos el cursor para traer los datos de la BD
+                SQLiteOpenHelper PetsDataBaseHelper = new PetsDataBaseHelper(v.getContext());
 
-                // Creamos un linea layout para el dialogo
-                LinearLayout linearLayout = new LinearLayout(v.getContext());
+                // Extrae la base de datos para trabajar con ella
+                SQLiteDatabase db = PetsDataBaseHelper.getReadableDatabase();
 
-                // Creamos un objeto rating bar
-                RatingBar rating = new RatingBar(v.getContext());
-
-                // Damos a RatingBar parámetros de LinearLayour, estos son los requeridos:
-                // layout_height y layout_widht, los ponemos en wrap content
-                rating.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                ));
-
-                // Ponemos máximo 5 estrellas
-                rating.setNumStars(5);
-
-                // Y que se vaya llenando con un incremento de 0.5
-                rating.setStepSize((float)0.5);
-
-                //add ratingBar to linearLayout
-                linearLayout.addView(rating);
-
-                // En la API descubrimos que para cada tipo de gravity hay un int asociado,
-                // el 1 corresponde a center_horizontal
-                linearLayout.setGravity(1);
-
-                // Ponemos el icono al lado del título
-                alertDialog.setIcon(R.drawable.puntuation_filled);
-
-                // Y un título
-                alertDialog.setTitle("Add Rating: ");
-
-                // Tenemos que añadir el linealayout al diálogo
-                alertDialog.setView(linearLayout);
-
-                // Creamos un botón de aceptar
-                alertDialog.setPositiveButton(android.R.string.ok,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                // Guardamos el valor actual de puntuación
-                                float currentValue=rating.getRating();
-
-                                // Cambiamos el rating de la mascota en cuestion
-                                pet.setRating(String.valueOf(currentValue));
-
-                                // Actualizamos también el TextView que lo muestra
-                                petViewHolder.tvRating.setText(String.valueOf(currentValue));
-
-                                // Cerramos el cuadro de diáloigo
-                                dialog.dismiss();
-                            }
-                        });
-
-                // Mostramos el diálogo
-                alertDialog.show();
+                ContentValues petValues = new ContentValues();
+                /*
+                 * creamos cada uno de los campos de la fila a insertar
                  */
+                petValues.put("RATING",String.valueOf(newValue));
 
+                // Ejecutamos el update del rating en esta mascota en concreto
+                db.update("PET", petValues,"_id= ?",new String[]{String.valueOf(pet.getPet_id())});
 
             }
         });
