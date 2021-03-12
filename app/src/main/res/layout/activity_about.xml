@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AboutActivity">
+
+    <include
+        layout="@layout/toolbar_main"
+        android:id="@+id/toolbar"/>
+
+    <!--Foto y nombre del creador-->
+    <ImageView
+        android:id="@+id/imvCreator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/red_eared_slider_turtle"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="true"
+        />
+    <TextView
+        android:id="@+id/tvCreator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/creator_name"
+        android:textStyle="bold"
+        android:textSize="32dp"/>
+    <!--Fila con el telefono -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/tvCreatorTLF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/creator_tlf"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    <!--Fila con el email-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/tvCreatorEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/creator_email"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <!--Fila con el icono del correo y el email-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/tvCreatorDir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/creator_dir"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+</LinearLayout>
